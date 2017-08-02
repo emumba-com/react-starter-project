@@ -1,0 +1,11 @@
+[ignore]
+<PROJECT_ROOT>/__tests__/.*
+.*/node_modules/radium/src/.*
+.*/node_modules/jsonlint/test/.*
+
+[include]
+
+[libs]
+
+[options]
+esproposal.decorators=ignore

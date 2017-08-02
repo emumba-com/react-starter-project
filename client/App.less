@@ -1,0 +1,30 @@
+.root {
+
+}
+
+.pageContainer {
+  &:before {
+    width: 26rem;
+    display: block;
+    content: "";
+    position: fixed;
+    z-index: -1;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background: #8895b3;
+  }
+}
+
+.layout {
+  display: flex;
+}
+
+.primaryColumn {
+  flex-grow: 1;
+}
+
+.secondaryColumn {
+  width: 26rem;
+  flex-shrink: 0;
+}

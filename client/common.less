@@ -1,0 +1,189 @@
+@font-face {
+  font-family: Brandon Bold;
+  src: url(/fonts/brandon/Brandon_bld.otf);
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: Open Sans Regular;
+  src: url(/fonts/open-sans/OpenSans-Regular.ttf);
+  font-weight: thin;
+}
+
+@font-face {
+  font-family: Open Sans SemiBold;
+  src: url(/fonts/open-sans/OpenSans-Semibold.ttf);
+  font-weight: thin;
+}
+
+@font-face {
+  font-family: Open Sans Bold;
+  src: url(/fonts/open-sans/OpenSans-Bold.ttf);
+  
+}
+
+@font-face{
+  font-family: Open Sans ExtraBold;
+  src: url(/fonts/open-sans/OpenSans-ExtraBold.ttf);
+  font-weight: 100;
+}
+
+@font-face{
+  font-family: Open Sans CondBold;
+  src: url(/fonts/open-sans-condensed/OpenSans-CondBold.ttf);
+  
+}
+
+@font-face {
+  font-family: Source Sans Bold;
+  src: url(/fonts/source-sans-pro/SourceSansPro-Bold.otf);
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: Source Sans Black;
+  src: url(/fonts/source-sans-pro/SourceSansPro-Black.otf);
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: Source Sans Regular;
+  src: url(/fonts/source-sans-pro/SourceSansPro-Regular.otf);
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: Futura LT Bold;
+  src: url(/fonts/futura_lt_bold/futura-lt-bold.ttf);
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: Poppins Bold;
+  src: url(/fonts/poppins/Poppins-Bold.ttf);
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: Black Jack;
+  src: url(/fonts/blackjack/BLACKJAR.TTF);
+  font-weight: normal;
+}
+
+
+@color-primary: #F5BB51;
+@color-secondary: #2AACE3;
+@color-text: #666;
+@color-text-small: #A7A9AB;
+@color-block: #E6E7E8;
+
+._heading_ {
+  font-family: Open Sans ExtraBold;
+  font-size: 26px;
+  color: @color-text;
+  font-weight: 100;
+  text-transform: capitalize;
+}
+
+._sub-heading_ {
+  font-family: Open Sans Semibold;
+  font-size: 20px;
+  color: @color-text;
+}
+
+._dialog-heading_ {
+  font-family: Black Jack;
+  font-size: 26px;
+  color: @color-text;
+  font-weight: 100;
+  text-transform: capitalize;
+}
+
+._text_ {
+  font-family: Open Sans Regular;
+  font-size: 14px;
+  color: @color-text;
+}
+
+._text-fancy_ {
+  font-family: Black Jack;
+}
+
+._text-small_ {
+  font-family: Open Sans Regular;
+  font-size: 14px;
+  color: @color-text-small;
+  
+  a {
+    color: @color-text-small;
+  }
+}
+
+._text-sub_{
+  font-family: Open Sans Regular;
+  font-size: 16px;
+  color: @color-text;
+}
+
+._link_ {
+  font-family: Open Sans Regular;
+  color: @color-secondary;
+}
+
+:global .heading {
+  ._heading_();
+}
+
+:global .sub-heading {
+  ._sub-heading_();
+  
+  a {
+    &, &:hover {
+      color: inherit;
+    }
+  }
+}
+
+:global .dialog-heading {
+  ._dialog-heading_();
+}
+
+:global .text {
+  ._text_();
+}
+
+:global .text-sub{
+  ._text-sub_();
+}
+
+:global .text-small {
+  ._text-small_();
+}
+
+:global .text-fancy {
+  ._text-fancy_();
+}
+
+:global .link {
+  ._link_();
+}
+
+button span, a[type=button] span {
+  font-family: Open Sans Regular;
+  font-size: 14px;
+  text-transform: none;
+}
+
+body, p {
+  ._text_();
+}
+
+a {
+  color: @color-secondary;
+  text-decoration: none;
+  
+  &:hover {
+    // color: #1f7da5;
+    text-decoration: underline;
+  }
+}

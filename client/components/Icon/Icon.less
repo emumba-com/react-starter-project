@@ -1,0 +1,39 @@
+@import '../../styles/variables.less';
+
+.root {
+    display: block;
+    width: 2rem;
+    height: 2rem;
+
+    svg {
+        overflow: visible;
+    }
+}
+
+.NODE_STATUS_UNTRACKED {
+    path, polygon, polyline, rect {
+        fill: white;
+        stroke: #666;
+    }
+}
+
+.NODE_STATUS_NORMAL {
+    path, polygon, polyline, rect {
+        fill: white;
+        stroke: @color-stroke-normal;
+    }
+}
+
+.NODE_STATUS_WARNING {
+    path, polygon, polyline, rect {
+        fill: white;
+        stroke: @color-stroke-warning;
+    }
+}
+
+.NODE_STATUS_CRITICAL {
+    path, polygon, polyline, rect {
+        fill: white;
+        stroke: @color-stroke-critical;
+    }
+}

@@ -1,0 +1,69 @@
+.root {
+  
+  h2 {
+    margin: 0 0 25px 0;
+  }
+  
+  h3 {
+    margin: 0;
+  }
+  
+  .scrollableListContainer {
+    text-align: center;
+    
+    .scrollableList {
+      text-align: left;
+    }
+    
+    .tabContentContainer {
+      margin-top: 20px;
+    }
+    
+    .tabs {
+      
+    }
+  }
+  
+  .rowProfile {
+    .columnLeft {
+      // width: 49%;
+      
+      .pictureUploader {
+        width: 200px;
+        height: 200px;
+        text-align: center;
+        line-height: 200px;
+        cursor: pointer;
+        
+        outline: 2px dashed white;
+        color: transparent;
+        font-weight: bold;
+        
+        &:hover {
+          color: white;
+          outline: 2px dashed #ccc;
+          text-shadow: 1px 1px #666;
+        }
+      }
+    }
+    
+    .columnRight {
+      // width: 49%;
+      vertical-align: top;
+      
+      .legend {
+        text-align: left;
+        display: inline-block;
+            
+        p {
+          .box {
+            width: 10px;
+            height: 10px;
+            display: inline-block;
+            margin-right: 10px;
+          }
+        }
+      }
+    }
+  }
+}

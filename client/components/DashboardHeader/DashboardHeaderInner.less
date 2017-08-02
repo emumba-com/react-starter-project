@@ -1,0 +1,59 @@
+@import '../../styles/variables.less';
+
+@bar-height: 6rem;
+
+.root {
+  .visible {
+    width: 100%;
+    z-index: 2000;
+    position: fixed;
+    
+    .headerBar {
+      height: @bar-height;
+      background-color: @color-primary;
+      display: flex;
+      justify-content: flex-end;
+
+      .branding {
+        flex-grow: 1;
+        padding: 0 2rem;
+
+        a {
+          color: #dfe4ec;
+          font-size: 2rem;
+          line-height: @bar-height;
+
+          &:hover, &:active {
+            text-decoration: none;
+          }
+        }
+      }
+
+      .breadcrumbs {
+        padding: 0 1rem;
+        line-height: @bar-height;
+        color: #7e8ba7;
+
+        a {
+          color: #7e8ba7;
+          margin: 0 1rem;
+        }
+      }
+
+      .searchWidget {
+        padding: 1.2rem 2rem;
+        width: 40rem;
+        border-left: 0.1rem solid #4a5969;
+        position: relative;
+      }
+
+      .authentication {
+        padding: 0 2rem;
+        color: white;
+        background-color: #2e3d4d;
+        width: 26rem;
+        line-height: @bar-height;
+      }
+    }
+  }
+}
