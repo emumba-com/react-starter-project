@@ -9,5 +9,4 @@ export { default as DashboardHeader             } from "./DashboardHeader"
 export { default as PrivateRoute                } from "./PrivateRoute"
 export { default as PublicRoute                 } from "./PublicRoute"
 export { default as NotificationSystemConnector } from "./NotificationSystemConnector"
-export { default as SummaryColumn               } from "./SummaryColumn"
 

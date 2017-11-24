@@ -3,8 +3,6 @@ import React from "react"
 import { Provider } from "react-redux"
 import { Route, Switch, Redirect } from "react-router-dom"
 import getMuiTheme from "material-ui/styles/getMuiTheme"
-import { DragDropContextProvider } from "react-dnd"
-import HTML5Backend from "react-dnd-html5-backend"
 import PropTypes from "prop-types"
 
 // src
@@ -19,8 +17,7 @@ import {
   DashboardHeader,
   PublicRoute,
   PrivateRoute,
-  NotificationSystemConnector,
-  SummaryColumn,
+  NotificationSystemConnector
 } from "./components"
 
 export default class App extends React.Component {
@@ -50,34 +47,29 @@ export default class App extends React.Component {
     const { store, Router, routerProps } = this.props
 
     return (
-      <DragDropContextProvider backend={HTML5Backend}>
-        <Provider store={store}>
-          <Router {...routerProps}>
-            <div className={styles.root}>
-              <DashboardHeader />
-              <NotificationSystemConnector />
-              <div className={styles.layout}>
-                <div className={styles.primaryColumn}>
-                  <div className={`container-fluid ${styles.pageContainer}`}>
-                    <Switch>
-                      
-                      <PublicRoute        path="/login"   component={PageLogin} />
-                      <Route              path="/logout"  component={PageLogout} />
-                      <PrivateRoute exact path="/"        component={PageSystemView} />
-                      <Route        exact path="/errors"  component={PageErrorView} />
-                      <Route                              component={Page404} />
+      <Provider store={store}>
+        <Router {...routerProps}>
+          <div className={styles.root}>
+            <DashboardHeader />
+            <NotificationSystemConnector />
+            <div className={styles.layout}>
+              <div className={styles.primaryColumn}>
+                <div className={`container-fluid ${styles.pageContainer}`}>
+                  <Switch>
 
-                    </Switch>
-                  </div>
-                </div>
-                <div className={styles.secondaryColumn}>
-                  <SummaryColumn />
+                    <PublicRoute        path="/login"   component={PageLogin} />
+                    <Route              path="/logout"  component={PageLogout} />
+                    <PrivateRoute exact path="/"        component={PageSystemView} />
+                    <Route        exact path="/errors"  component={PageErrorView} />
+                    <Route                              component={Page404} />
+
+                  </Switch>
                 </div>
               </div>
             </div>
-          </Router>
-        </Provider>
-      </DragDropContextProvider>
+          </div>
+        </Router>
+      </Provider>
     )
   }
 }
