@@ -7,7 +7,7 @@ import configureStore from '../store/configureStore'
 import { history } from '../utils/configureRouter'
 import App from '../App'
 
-// injectTapEventPlugin()
+injectTapEventPlugin()
 const store = configureStore(window.GAW.preloadedState)
 ReactDOM.render(<App store={store} Router={Router} routerProps={{history}}/>, document.getElementById('root'))
 // configureSocketIO(store)

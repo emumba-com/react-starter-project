@@ -5,7 +5,7 @@ import cls from 'continuation-local-storage'
 // src
 import { dbName, username, password, host, multiStatement, enableLogging } from '../../config/db.config.js'
 
-Sequelize.cls = cls.createNamespace('my-very-own-namespace')
+Sequelize.useCLS(cls.createNamespace('my-very-own-namespace'))
 
 const sequelize = new Sequelize(dbName, username, password, {
   host,
