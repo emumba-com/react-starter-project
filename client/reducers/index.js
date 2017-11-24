@@ -7,7 +7,6 @@ import * as ActionTypes from '../actions'
 import entities from './entities'
 import aggregatedData from './aggregatedData'
 import feed from './feed'
-//import queryBreakdown from './fetchQueryBreakdown'
 
 // Updates error message to notify about the failed fetches.
 function errorMessage(state = null, action) {
@@ -43,21 +42,6 @@ export function meta(state = {}, action) {
   const { type, payload } = action
 
   switch (type) {
-    case ActionTypes.META_ALERT_BAR_HIDE: {
-      return {...state, showAlertBar: false}
-    }
-    case ActionTypes.META_ALERT_BAR_SHOW: {
-      return {...state, showAlertBar: true}
-    }
-    case ActionTypes.META_SEARCH_BAR_HIDE: {
-      return {...state, showSearchBar: false}
-    }
-    case ActionTypes.META_SEARCH_BAR_SHOW: {
-      return {...state, showSearchBar: true}
-    }
-    case ActionTypes.META_LOGO_LINK_SET: {
-      return {...state, logoLink: payload}
-    }
     default: {
       return state
     }
