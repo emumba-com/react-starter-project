@@ -159,19 +159,6 @@ export const popEntitiesStatus = (state: Object, entities: Array<Object>) =>
     }))
   )
 
-/**
- * Given a store state and a nodeId, the func confirms
- * if the store contains data about that node
- *
- * @param {Object} state - Redux store state
- * @param {number} nodeId - a node id
- * @return {boolean} - Whether store contains node with given id or not
- */
-export const hasNodeData = (state: Object, nodeId: number): boolean => {
-  const { entities: { nodes } } = state
-
-  return typeof nodes[nodeId] !== undefined
-}
 
 /**
  * Given a store state and a feed key, func confirms if the store contains
@@ -240,106 +227,6 @@ export const getEntityStatus = (
 
   return instance ? instance.__status__ : ENTITY_STATUS_UNATTEMPTED
 }
-
-/**
- * Given a store stata and a node id, the func returns an array of node status
- * @deprecated This should be removed
- */
-export const getNodeStatusList = (state: Object, id: number): Array<any> => {
-  const node = getEntity(state, "nodes", id)
-  const __nodeStatus = get(
-    state,
-    `nodeStatus.${node && node.universalIdentifier}`,
-    {}
-  )
-
-  return (
-    Object.keys(__nodeStatus)
-      .map(key => ({ ...__nodeStatus[key], time: parseInt(key, 10) }))
-      .sort((a, b) => b - a) || []
-  )
-}
-
-export const NODE_STATUS_UNTRACKED = "NODE_STATUS_UNTRACKED"
-export const NODE_STATUS_NORMAL = "NODE_STATUS_NORMAL"
-export const NODE_STATUS_WARNING = "NODE_STATUS_WARNING"
-export const NODE_STATUS_CRITICAL = "NODE_STATUS_CRITICAL"
-
-export const getNodeStatus = (state: Object, id: number): string => {
-  const entity = getEntity(state, "nodes", id)
-  const universalIdentifier = get(entity, "universalIdentifier")
-  const nStatus = get(
-    state,
-    `aggregatedData.nodeStatus.data['${universalIdentifier}'][0].status`
-  )
-  const status =
-    nStatus === 0
-      ? NODE_STATUS_NORMAL
-      : nStatus === 1
-        ? NODE_STATUS_WARNING
-        : nStatus === 2 ? NODE_STATUS_CRITICAL : NODE_STATUS_UNTRACKED
-
-  return status
-}
-
-export const getNodeSummary = (state: Object, id: number): Object => {
-  const entity = getEntity(state, "nodes", id)
-  const universalIdentifier = get(entity, "universalIdentifier")
-  return get(
-    state,
-    `aggregatedData.nodeStatus.data['${universalIdentifier}'][0].summaryParsed`,
-    []
-  )
-}
-
-export const getEnvironmentStatus = (
-  state: Object,
-  id: number
-): Array<Object> =>
-  get(state, `aggregatedData.environmentStatus.data.${id}[0].status`, 0)
-export const getEnvironmentSummary = (
-  state: Object,
-  id: number
-): Array<Object> =>
-  get(state, `aggregatedData.environmentStatus.data.${id}[0].summaryParsed`, [])
-
-export const getEnvironmentWarningCount = (state: Object, id: number): number =>
-  getEnvironmentSummary(state, id).detail.reduce(
-    (memo, node) => memo + node.status % 2,
-    0
-  )
-
-export const getEnvironmentCriticalCount = (
-  state: Object,
-  id: number
-): number =>
-  getEnvironmentSummary(state, id).detail.reduce(
-    (memo, node) => memo + (node.status === 2 ? 1 : 0),
-    0
-  )
-
-export const getSystemStatus = (state: Object): number =>
-  get(state, `aggregatedData.systemStatus.data[0].status`, 0)
-export const getSystemSummary = (state: Object): Array<Object> =>
-  get(state, `aggregatedData.systemStatus.data[0].summaryParsed`, [])
-
-export const getSystemWarningCount = (state: Object) =>
-  getSystemSummary(state).reduce(
-    (memo, env) =>
-      memo + env.detail.reduce((memo0, node) => memo0 + node.status % 2, 0),
-    0
-  )
-
-export const getSystemCriticalCount = (state: Object) =>
-  getSystemSummary(state).reduce(
-    (memo, env) =>
-      memo +
-      env.detail.reduce(
-        (memo0, node) => memo0 + (node.status === 2 ? 1 : 0),
-        0
-      ),
-    0
-  )
 
 /**
  * 

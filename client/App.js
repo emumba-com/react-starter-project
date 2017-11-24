@@ -12,8 +12,7 @@ import {
   PageLogin,
   PageLogout,
   Page404,
-  PageSystemView,
-  PageErrorView,
+  PageHomeView,
   DashboardHeader,
   PublicRoute,
   PrivateRoute,
@@ -59,8 +58,7 @@ export default class App extends React.Component {
 
                     <PublicRoute        path="/login"   component={PageLogin} />
                     <Route              path="/logout"  component={PageLogout} />
-                    <PrivateRoute exact path="/"        component={PageSystemView} />
-                    <Route        exact path="/errors"  component={PageErrorView} />
+                    <PrivateRoute exact path="/"        component={PageHomeView} />
                     <Route                              component={Page404} />
 
                   </Switch>
