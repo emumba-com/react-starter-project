@@ -51,7 +51,7 @@ module.exports = {
           "jsx-control-statements"
         ],
         "presets": [
-          "es2015",
+          "env",
           "react",
           "stage-0"
         ]

@@ -73,7 +73,7 @@ module.exports = {
       loader: 'babel-loader',
       options: {
         "plugins": ["add-module-exports", "transform-decorators-legacy", "jsx-control-statements"],
-        "presets": ["es2015", "react", "stage-0"]
+        "presets": ["env", "react", "stage-0"]
       }
     }, {
       test: /\.json?$/,
