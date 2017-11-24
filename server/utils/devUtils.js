@@ -2,7 +2,6 @@ const webpack = require('webpack');
 const webpackMiddleware = require('webpack-dev-middleware');
 const webpackHotMiddleware = require('webpack-hot-middleware');
 const config = require('./../../webpack.config.js');
-import chokidar from 'chokidar';
 import path from 'path'
 
 const setupWebpack = (app) => {
@@ -36,18 +35,7 @@ const setupHMR = () => {
   // Throw away cached modules and re-require next time
   // Ensure there's no important state in there!
   const serverPath = path.resolve('./server')
-  //console.log(serverPath)
-  const watcher = chokidar.watch(serverPath);
-
-  watcher.on('ready', () => {
-    watcher.on('all', () => {
-      console.log("Clearing /server/ module cache from server");
-      Object.keys(require.cache).forEach((id) => {
-        if (/[\/\\]server[\/\\]/.test(id))
-          delete require.cache[id];
-      });
-    });
-  });
+  // TODO setup backend hmr
 
   // Do "hot-reloading" of react stuff on the server
   // Throw away the cached client modules and let them be re-required next time

@@ -1,10 +1,3 @@
-// import {Colors, ColorManipulator, Spacing, zIndex} from 'material-ui';
-
-// import Colors from 'material-ui/styles/colors';
-// import Spacing from 'material-ui/lib/styles/spacing';
-// import zIndex from 'material-ui/lib/styles/zIndex';
-// import ColorManipulator from 'material-ui/lib/utils/color-manipulator';
-
 import {colors, spacing, zIndex} from 'material-ui/styles'
 import {fade} from 'material-ui/utils/colorManipulator.js'
 

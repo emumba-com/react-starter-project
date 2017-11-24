@@ -2,6 +2,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import get from 'lodash/get'
+import PropTypes from 'prop-types'
 
 // src
 import styles from './Icon.less'
@@ -49,7 +50,7 @@ const map = {
 })
 export default class Icon extends React.Component {
     static propTypes = {
-        id: React.PropTypes.number.isRequired
+        id: PropTypes.number.isRequired
     }
 
     render() {

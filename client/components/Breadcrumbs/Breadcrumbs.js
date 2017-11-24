@@ -2,6 +2,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
+import PropTypes from 'prop-types'
 
 // src
 import styles from './Breadcrumbs.less'
@@ -23,9 +24,9 @@ import { getEntity } from '../../utils'
 })
 export default class Breadcrumbs extends React.Component {
     static propTypes = {
-        entityKey: React.PropTypes.oneOf(['environments', 'nodes']),
-        id: React.PropTypes.number,
-        inclusive: React.PropTypes.bool
+        entityKey: PropTypes.oneOf(['environments', 'nodes']),
+        id: PropTypes.number,
+        inclusive: PropTypes.bool
     }
     render() {
         const { entityKey, inclusive, node, environment, id, children } = this.props

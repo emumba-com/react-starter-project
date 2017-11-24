@@ -1,6 +1,7 @@
 // libs
 import React from 'react'
 import moment from 'moment'
+import PropTypes from 'prop-types'
 
 /**
  * Just like Timeago, except it accepts a timestamp in future
@@ -11,7 +12,7 @@ import moment from 'moment'
 export default class Timeahead extends React.Component {
   
   static propTypes = {
-    timestamp: React.PropTypes.number
+    timestamp: PropTypes.number
   }
   
   constructor(props) {

@@ -5,7 +5,7 @@ import { Route, Switch, Redirect } from "react-router-dom"
 import getMuiTheme from "material-ui/styles/getMuiTheme"
 import { DragDropContextProvider } from "react-dnd"
 import HTML5Backend from "react-dnd-html5-backend"
-import 'react-tree-graph/dist/style.css'
+import PropTypes from "prop-types"
 
 // src
 import styles from "./App.less"
@@ -25,14 +25,14 @@ import {
 
 export default class App extends React.Component {
   static propTypes = {
-    userAgent: React.PropTypes.string,
-    store: React.PropTypes.object,
-    Router: React.PropTypes.element,
-    routerProps: React.PropTypes.routerProps
+    userAgent: PropTypes.string,
+    store: PropTypes.object,
+    Router: PropTypes.element,
+    routerProps: PropTypes.routerProps
   }
 
   static childContextTypes = {
-    muiTheme: React.PropTypes.object
+    muiTheme: PropTypes.object
   }
 
   constructor(props) {
