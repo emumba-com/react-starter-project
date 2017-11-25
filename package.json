@@ -1,7 +1,7 @@
 {
   "name": "react-starter",
   "version": "0.0.1",
-  "description": "React Starter Project @ eMumba",
+  "description": "React Starter Project @ emumba",
   "main": "server/index.js",
   "repository": {
     "type": "git",
@@ -14,10 +14,10 @@
     "react",
     "redux"
   ],
-  "author": "Muhammad Ali | Ahmed Waleed",
+  "author": "Umar Ashfaq | Muhammad Ali | Ahmed Waleed",
   "license": "",
   "bugs": {},
-  "homepage": "mrmuhammadali.me",
+  "homepage": "emumba.com",
   "scripts": {
     "start": "webpack --progress --config webpack.server.config.js; UNIVERSAL_RENDERING=true node server/dist/build.js",
     "fast": "UNIVERSAL_RENDERING=false babel-node server/index.js",
