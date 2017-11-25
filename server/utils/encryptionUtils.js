@@ -1,3 +1,4 @@
+// libs
 import crypto from 'crypto';
 
 const ALGORITHM = 'AES-256-CTR'; // CBC because CTR isn't possible with the current version of the Node.JS crypto library

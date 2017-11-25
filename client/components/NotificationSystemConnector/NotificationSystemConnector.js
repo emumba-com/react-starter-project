@@ -1,15 +1,13 @@
 // libs
 import React from 'react'
-import {connect} from 'react-redux'
+import { connect } from 'react-redux'
 import NotificationSystem from 'react-notification-system'
 
-const mapStateToProps = state => {
-  const {errorMessage} = state
-  
-  return {errorMessage}
-}
+@connect(state => {
+  const { errorMessage } = state
 
-@connect(mapStateToProps)
+  return { errorMessage }
+})
 export default class NotificationSystemConnector extends React.Component {
   constructor(props) {
     super(props)

@@ -7,16 +7,8 @@ import get from "lodash/get"
 export default (options: Object) => {
   const {
     actions: [ACTION_FETCH, ACTION_SUCCESS, ACTION_FAILURE],
-    entityCreateActions: [
-      ENTITY_CREATE_ONE,
-      ENTITY_CREATE_ONE_SUCCESS,
-      ENTITY_CREATE_ONE_FAILURE
-    ] = ["e0", "e0s", "e0f"],
-    entityDeleteActions: [
-      ENTITY_DELETE_ONE,
-      ENTITY_DELETE_ONE_SUCCESS,
-      ENTITY_DELETE_ONE_FAILURE
-    ] = ["e1", "e1s", "e1f"],
+    entityCreateActions: [ENTITY_CREATE_ONE, ENTITY_CREATE_ONE_SUCCESS, ENTITY_CREATE_ONE_FAILURE] = ["e0", "e0s", "e0f"],
+    entityDeleteActions: [ENTITY_DELETE_ONE, ENTITY_DELETE_ONE_SUCCESS, ENTITY_DELETE_ONE_FAILURE] = ["e1", "e1s", "e1f"],
     reducerItems
   } = options
 

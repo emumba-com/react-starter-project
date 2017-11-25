@@ -14,7 +14,7 @@ const PageLoginInner = props => {
   return (
     <div className={`${styles.root} row`}>
       <div className="col-lg-6 col-lg-offset-3">
-        <DocumentTitle title="Login - Emumba"/>
+        <DocumentTitle title="Login - React Starter"/>
         <Paper>
           <form className={styles.root} onSubmit={onSubmit}>
             <h2 className="dialog-heading" style={{textAlign: 'center'}}>Sign in</h2>

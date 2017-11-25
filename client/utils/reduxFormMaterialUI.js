@@ -9,7 +9,7 @@ import SelectField from 'material-ui/SelectField'
 
 // src
 import { hasFeed as fnHasFeed, getFeed } from './utils'
-import { fetchAllEnvironmentTypes, fetchAllEnvironmentLocations, fetchAllNodeTypes, fetchAllEnvironments } from '../actions'
+import { fetchAllIcons } from '../actions'
 
 export const renderTextField = ({ input, label, innerRef, meta: { touched, error }, ...custom }) => (
   <TextField
@@ -51,7 +51,18 @@ export const renderSelectField = ({ input, label, meta: { touched, error }, chil
 )
 
 const makeEntitySelectionField = ({ feedKey, entityKey, fetch }) => {
-  class FieldEnvironmentTypes extends React.Component {
+
+  return @connect((state, ownProps) => {
+    const { meta, filterItems } = ownProps
+    const hasFeed = fnHasFeed(state, feedKey, entityKey)
+    const feed = getFeed(state, feedKey, entityKey)
+    const items = filterItems
+      ? get(feed, 'items', []).filter(item => item[filterItems.key] === filterItems.value)
+      : get(feed, 'items', [])
+
+    return { hasFeed, ...feed, items, meta }
+  }, { fetch })
+  class EntitySelectionField extends React.Component {
     componentDidMount() {
       const { hasFeed, fetch } = this.props
 
@@ -61,54 +72,30 @@ const makeEntitySelectionField = ({ feedKey, entityKey, fetch }) => {
       const { isLoading, items, children, ...rest } = this.props
 
       return (
-      <div>
-        <Choose>
-          <When condition={ isLoading }>
-            <p>Loading ...</p>
-          </When>
-          <When condition={ !items.length }>
-            <p>Data not loaded!</p>
-          </When>
-          <Otherwise>
-            {
-              renderSelectField(Object.assign({}, rest, {
-                children: items.map( ({id, name}) => <MenuItem value={id} primaryText={name}/>)
-              }))
-            }
-          </Otherwise>
-        </Choose>
-      </div>)
+        <div>
+          <Choose>
+            <When condition={ isLoading }>
+              <p>Loading ...</p>
+            </When>
+            <When condition={ !items.length }>
+              <p>Data not loaded!</p>
+            </When>
+            <Otherwise>
+              {
+                renderSelectField(Object.assign({}, rest, {
+                  children: items.map( ({id, name}) => <MenuItem value={id} primaryText={name}/>)
+                }))
+              }
+            </Otherwise>
+          </Choose>
+        </div>
+      )
     }
   }
-
-  return connect(state => {
-    const hasFeed = fnHasFeed(state, feedKey, entityKey)
-    const feed = getFeed(state, feedKey, entityKey)
-
-    return { hasFeed, ...feed }
-  }, { fetch })(FieldEnvironmentTypes)
 }
 
-export const renderEnvironmentsField = makeEntitySelectionField({
-  feedKey: 'environmentsAll', 
-  entityKey: 'environments',
-  fetch: fetchAllEnvironments
-})
-
-export const renderEnvironmentTypesField = makeEntitySelectionField({
-  feedKey: 'environmentTypesAll', 
-  entityKey: 'environmentTypes',
-  fetch: fetchAllEnvironmentTypes
-})
-
-export const renderEnvironmentLocationsField = makeEntitySelectionField({
-  feedKey: 'environmentLocationsAll',
-  entityKey: 'environmentLocations',
-  fetch: fetchAllEnvironmentLocations
-})
-
-export const renderNodeTypesField = makeEntitySelectionField({
-  feedKey: 'nodeTypesAll', 
-  entityKey: 'nodeTypes',
-  fetch: fetchAllNodeTypes
+export const renderIconsField = makeEntitySelectionField({
+  feedKey: 'iconsAll',
+  entityKey: 'icons',
+  fetch: fetchAllIcons
 })

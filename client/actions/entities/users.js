@@ -26,17 +26,6 @@ function callApiLogin(email, password) {
 export function login(email, password) {
   return (dispatch, getState) =>
     dispatch(callApiLogin(email, password))
-      // adding setTimeout to avoid this warning
-      // Warning: setState(...): Cannot update during an existing state transition (such as within `render` or another component's constructor). Render methods should be a pure function of props and state; constructor side-effects are an anti-pattern, but can be moved to `componentWillMount`.
-      /*
-      .then(({error, payload}) => {
-        if (error) {
-          throw payload
-        } 
-        
-        dispatch(push('/'))
-      })
-      */
 }
 
 export const USER_LOGOUT = 'USER_LOGOUT'

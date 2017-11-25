@@ -1,5 +1,5 @@
 // lib
-import { combineReducers } from "redux"
+import { combineReducers } from 'redux'
 
 // src
 

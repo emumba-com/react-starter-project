@@ -1,8 +1,11 @@
+// libs
 const webpack = require('webpack');
 const webpackMiddleware = require('webpack-dev-middleware');
 const webpackHotMiddleware = require('webpack-hot-middleware');
-const config = require('./../../webpack.config.js');
 import path from 'path'
+
+// src
+const config = require('./../../webpack.config.js');
 
 const setupWebpack = (app) => {
   console.log(`[devUtils] Setting up HMR for frontend`)

@@ -12,12 +12,13 @@ import { renderFile } from 'ejs'
 // src
 import devUtils from './utils/devUtils'
 import logUtils from './utils/logUtils'
-// import scheduledTaskUtils from './utils/scheduledTaskUtils'
-// import notificationService from './services/notificationService'
 import {
-  build404ErrorHandler, build500ErrorHandler,
-  setupPassport, setupSessionStore,
-  getPort, isProduction
+  build404ErrorHandler,
+  build500ErrorHandler,
+  setupPassport,
+  setupSessionStore,
+  getPort,
+  isProduction
 } from './utils'
 
 const port = getPort()

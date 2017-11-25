@@ -1,13 +1,13 @@
 // libs
-import React from "react"
-import { Provider } from "react-redux"
-import { Route, Switch, Redirect } from "react-router-dom"
-import getMuiTheme from "material-ui/styles/getMuiTheme"
-import PropTypes from "prop-types"
+import React from 'react'
+import { Provider } from 'react-redux'
+import { Route, Switch, Redirect } from 'react-router-dom'
+import getMuiTheme from 'material-ui/styles/getMuiTheme'
+import PropTypes from 'prop-types'
 
 // src
-import styles from "./App.less"
-import MUITheme from "../config/theme"
+import styles from './App.less'
+import MUITheme from '../config/theme'
 import {
   PageLogin,
   PageLogout,
@@ -17,7 +17,7 @@ import {
   PublicRoute,
   PrivateRoute,
   NotificationSystemConnector
-} from "./components"
+} from './components'
 
 export default class App extends React.Component {
   static propTypes = {
@@ -56,10 +56,10 @@ export default class App extends React.Component {
                 <div className={`container-fluid ${styles.pageContainer}`}>
                   <Switch>
 
-                    <PublicRoute        path="/login"   component={PageLogin} />
-                    <Route              path="/logout"  component={PageLogout} />
-                    <PrivateRoute exact path="/"        component={PageHomeView} />
-                    <Route                              component={Page404} />
+                    <PublicRoute path="/login" component={PageLogin} />
+                    <Route path="/logout" component={PageLogout} />
+                    <PrivateRoute exact path="/" component={PageHomeView} />
+                    <Route component={Page404} />
 
                   </Switch>
                 </div>

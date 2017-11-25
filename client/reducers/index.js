@@ -1,8 +1,9 @@
+// libs
 import { combineReducers } from 'redux'
 import { reducer as formReducer } from 'redux-form'
 import { routerReducer as routing } from 'react-router-redux'
-import moment from 'moment'
 
+// src
 import * as ActionTypes from '../actions'
 import entities from './entities'
 import aggregatedData from './aggregatedData'

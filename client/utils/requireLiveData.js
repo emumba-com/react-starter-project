@@ -1,9 +1,9 @@
 /* @flow */
-import React from "react"
-import { connect } from "react-redux"
+import React from 'react'
+import { connect } from 'react-redux'
 
 // src
-import { startSequentialTimer } from "./utils"
+import { startSequentialTimer } from './utils'
 
 /**
  * A higher order function that repeatedely triggers a function

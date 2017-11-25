@@ -1,7 +1,8 @@
+// libs
 import { combineReducers } from 'redux'
 
 const combineReducersByID = props => reducers => {
-  const {types = [], getID} = props
+  const { types = [], getID } = props
   const reduceStateForEntity = combineReducers(reducers)
 
   return (state = {}, action) => {

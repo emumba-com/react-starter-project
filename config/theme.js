@@ -1,5 +1,5 @@
-import {colors, spacing, zIndex} from 'material-ui/styles'
-import {fade} from 'material-ui/utils/colorManipulator.js'
+import { colors, spacing, zIndex } from 'material-ui/styles'
+import { fade } from 'material-ui/utils/colorManipulator.js'
 
 export default {
   spacing: spacing,

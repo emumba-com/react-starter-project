@@ -1,4 +1,7 @@
+// libs
 import Sequelize from 'sequelize'
+
+// src
 import sequelize from './../utils/sequelize'
 
 export default sequelize.define('configurations', {

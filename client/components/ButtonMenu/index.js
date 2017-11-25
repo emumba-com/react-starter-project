@@ -1,1 +1,1 @@
-export default from "./ButtonMenu"
+export default from './ButtonMenu'

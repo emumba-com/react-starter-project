@@ -4,9 +4,7 @@ import { Link } from 'react-router-dom'
 
 // src
 import styles from './DashboardHeaderInner.less'
-import { bindInheritedFunctionScopes } from '../../utils'
 import { IconLogo } from '../Icon'
-// import {If} from '../If'
 
 const DashboardHeaderInner = props => {
   const {
@@ -29,14 +27,14 @@ const DashboardHeaderInner = props => {
           </div>
           <div className={styles.authentication}>
             <If condition={user}>
-              {user.firstName} {user.lastName} | <Link to="/logout" style={{color: 'white'}}>Logout</Link>
+              {user.firstName} {user.lastName}{" | "}
+              <Link to="/logout" style={{color: 'white'}}>Logout</Link>
             </If>
           </div>
         </div>
       </div>
-      <div className={styles.hidden}></div>
     </div>
   )
 }
 
-export default bindInheritedFunctionScopes()(DashboardHeaderInner)
+export default DashboardHeaderInner

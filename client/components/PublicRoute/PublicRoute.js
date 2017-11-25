@@ -3,17 +3,12 @@ import React from 'react'
 import { Route, Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
 
-const mapStateToProps = state => {
+@connect(state => {
   const {auth: {user}} = state
-  
-  return {user}
-}
 
-@connect(mapStateToProps)
+  return {user}
+})
 export default class PublicRoute extends React.Component {
-  constructor(props) {
-    super(props)
-  }
   
   render() {
     const {component, render, user, ...rest} = this.props

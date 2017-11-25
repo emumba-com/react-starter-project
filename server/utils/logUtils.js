@@ -1,4 +1,4 @@
-//import winston from 'winston';
+// src
 import some from 'lodash/some'
 import * as appUtils from './appUtils';
 

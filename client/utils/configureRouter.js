@@ -1,8 +1,9 @@
+// libs
 import createHistory from 'history/createBrowserHistory'
 import { routerMiddleware } from 'react-router-redux'
 
 // src
-import {isServer} from './'
+import { isServer } from './'
 
 export const history = isServer() ? null : createHistory()
 

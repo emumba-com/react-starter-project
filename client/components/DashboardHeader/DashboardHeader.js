@@ -1,19 +1,17 @@
 // libs
-import React from "react"
-import { connect } from "react-redux"
-import { push } from "react-router-redux"
+import React from 'react'
+import { connect } from 'react-redux'
+import { push } from 'react-router-redux'
 
 // src
-import DashboardHeaderInner from "./DashboardHeaderInner"
-import { getCurrentUser } from "../../utils"
+import DashboardHeaderInner from './DashboardHeaderInner'
+import { getCurrentUser } from '../../utils'
 
-const mapStateToProps = state => {
+@connect(state => {
   const user = getCurrentUser(state)
-  
-  return { user }
-}
 
-@connect(mapStateToProps)
+  return { user }
+})
 export default class DashboardHeader extends React.Component {
   constructor(props) {
     super(props)

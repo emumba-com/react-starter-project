@@ -1,11 +1,11 @@
 /* @flow */
 
 // libs
-import has from "lodash/has"
-import get from "lodash/get"
-import isEqual from "lodash/isEqual"
-import fromPairs from "lodash/fromPairs"
-import React from "react"
+import has from 'lodash/has'
+import get from 'lodash/get'
+import isEqual from 'lodash/isEqual'
+import fromPairs from 'lodash/fromPairs'
+import React from 'react'
 
 export const ENTITY_STATUS_UNATTEMPTED = "ENTITY_STATUS_UNATTEMPTED"
 export const ENTITY_STATUS_LOADING = "ENTITY_STATUS_LOADING"
@@ -253,34 +253,3 @@ export const parseQueryString = (query: string): Object =>
 
 export const getPathname = (state: Object): string =>
   get(state, "routing.location.pathname", "")
-
-/**
- * A higher order function that binds inherited function scopes to parent component
- */
-export const bindInheritedFunctionScopes = () => (
-  WrappedComponent: Object
-): Object => {
-  return class ComponentWithBoundInheritedFunctionScopes extends React.Component {
-    render() {
-      const scope = get(
-        this,
-        "_reactInternalInstance._currentElement._owner._instance"
-      )
-
-      if (!scope) {
-        throw new Error(`scope is undefined`)
-      }
-
-      const boundFuncs = {}
-      Object.keys(this.props)
-        .filter(key => typeof this.props[key] === "function")
-        .forEach(key => {
-          boundFuncs[key] = this.props[key].bind(scope)
-        })
-
-      const props = Object.assign({}, this.props, boundFuncs)
-
-      return <WrappedComponent {...props} />
-    }
-  }
-}

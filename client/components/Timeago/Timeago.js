@@ -45,7 +45,7 @@ export default class Timeago extends React.Component {
   }
   
   getTimeago() {
-    const {timestamp} = this.props
+    const { timestamp } = this.props
 
     return moment(timestamp).fromNow()
   }
@@ -53,13 +53,12 @@ export default class Timeago extends React.Component {
   getDatetime() {
     const { timestamp } = this.props
 
-    return moment(timestamp).format('h:m a, MMMM D, YYYY')
+    return moment(timestamp).format('h:mm a, MMMM D, YYYY')
   }
   
   render() {
     const { className } = this.props
     const { timeago } = this.state
-    //alert(`time ago value is ${timeago - 3600000}`);
     
     return <span className={className}>{timeago}</span>
   }

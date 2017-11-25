@@ -1,10 +1,13 @@
+// libs
 import { createStore, applyMiddleware, compose } from 'redux'
 import thunk from 'redux-thunk'
 import { createLogger } from 'redux-logger'
+
+// src
 import api from '../middleware/api'
 import rootReducer from '../reducers'
-import {middleware as routerMiddleware} from '../utils/configureRouter'
-import {isServer} from '../utils'
+import { middleware as routerMiddleware } from '../utils/configureRouter'
+import { isServer } from '../utils'
 
 export default function configureStore(preloadedState) {
   const composeEnhancers = (!isServer() && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) || compose
