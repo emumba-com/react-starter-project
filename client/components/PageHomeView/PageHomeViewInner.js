@@ -1,5 +1,6 @@
 // libs
 import React from 'react'
+import DocumentTitle from 'react-document-title'
 
 const PageHomeViewInner = props => {
   const {
@@ -8,17 +9,20 @@ const PageHomeViewInner = props => {
   } = props
 
   return (
-    <Choose>
-      <When condition={isLoading}>
-        Loading...
-      </When>
-      <When condition={isDataAvailable}>
-        <h1>React Starter Project</h1>
-      </When>
-      <Otherwise>
-        Data Unavaiable
-      </Otherwise>
-    </Choose>
+    <div>
+      <DocumentTitle title='Home - React Starter'/>
+      <Choose>
+        <When condition={isLoading}>
+          Loading...
+        </When>
+        <When condition={isDataAvailable}>
+          <h1>React Starter Project</h1>
+        </When>
+        <Otherwise>
+          Data Unavaiable
+        </Otherwise>
+      </Choose>
+    </div>
   )
 }
 
