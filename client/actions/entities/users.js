@@ -52,25 +52,6 @@ export function logout() {
       .then(() => dispatch(push('/login')))
 }
 
-export const USER_REGISTER = 'USER_REGISTER'
-export const USER_REGISTER_SUCCESS = 'USER_REGISTER_SUCCESS'
-export const USER_REGISTER_FAILURE = 'USER_REGISTER_FAILURE'
-
-export function register(firstName, lastName, email) {
-  return {
-    [CALL_API]: {
-      types: [
-        USER_REGISTER,
-        USER_REGISTER_SUCCESS,
-        USER_REGISTER_FAILURE
-      ],
-      endpoint: `/api/users`,
-      method: 'POST'
-    },
-    payload: {firstName, lastName, email}
-  }
-}
-
 export const USER_FORGOT_PASSWORD = 'USER_FORGOT_PASSWORD'
 export const USER_FORGOT_PASSWORD_SUCCESS = 'USER_FORGOT_PASSWORD_SUCCESS'
 export const USER_FORGOT_PASSWORD_FAILURE = 'USER_FORGOT_PASSWORD_FAILURE'
@@ -163,5 +144,63 @@ export function fetchUserByID(id:number):Object {
       method: 'GET'
     },
     meta: { id }
+  }
+}
+
+export const USERS_CREATE =         'USERS_CREATE'
+export const USERS_CREATE_SUCCESS = 'USERS_CREATE_SUCCESS'
+export const USERS_CREATE_FAILURE = 'USERS_CREATE_FAILURE'
+
+export function createUser(data) {
+  return {
+    [CALL_API]: {
+      types: [
+        USERS_CREATE,
+        USERS_CREATE_SUCCESS,
+        USERS_CREATE_FAILURE
+      ],
+      endpoint: `/api/users`,
+      method: 'POST'
+    },
+    payload: data
+  }
+}
+
+export const USERS_DELETE =         'USERS_DELETE'
+export const USERS_DELETE_SUCCESS = 'USERS_DELETE_SUCCESS'
+export const USERS_DELETE_FAILURE = 'USERS_DELETE_FAILURE'
+
+export function deleteUser(id) {
+  return {
+    [CALL_API]: {
+      types: [
+        USERS_DELETE,
+        USERS_DELETE_SUCCESS,
+        USERS_DELETE_FAILURE
+      ],
+      endpoint: `/api/users/${id}`,
+      method: 'DELETE'
+    },
+    meta: { id }
+  }
+}
+
+export const USERS_UPDATE =         'USERS_UPDATE'
+export const USERS_UPDATE_SUCCESS = 'USERS_UPDATE_SUCCESS'
+export const USERS_UPDATE_FAILURE = 'USERS_UPDATE_FAILURE'
+
+export function updateUserByID(id:number, attributes:Object):Object {
+  return {
+    [CALL_API]: {
+      types: [
+        USERS_UPDATE,
+        USERS_UPDATE_SUCCESS,
+        USERS_UPDATE_FAILURE
+      ],
+      endpoint: `/api/users/${id}`,
+      method: 'PUT'
+    },
+    payload: attributes,
+    meta: { id, attributes }
   }
 }

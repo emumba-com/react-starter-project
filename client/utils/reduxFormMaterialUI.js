@@ -9,7 +9,7 @@ import SelectField from 'material-ui/SelectField'
 
 // src
 import { hasFeed as fnHasFeed, getFeed } from './utils'
-import { fetchAllIcons } from '../actions'
+import { fetchAllUsers } from '../actions'
 
 export const renderTextField = ({ input, label, innerRef, meta: { touched, error }, ...custom }) => (
   <TextField
@@ -94,8 +94,8 @@ const makeEntitySelectionField = ({ feedKey, entityKey, fetch }) => {
   }
 }
 
-export const renderIconsField = makeEntitySelectionField({
-  feedKey: 'iconsAll',
-  entityKey: 'icons',
-  fetch: fetchAllIcons
+export const renderUsersField = makeEntitySelectionField({
+  feedKey: 'userAll',
+  entityKey: 'user',
+  fetch: fetchAllUsers
 })
