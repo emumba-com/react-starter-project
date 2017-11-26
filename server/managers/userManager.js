@@ -1,18 +1,22 @@
 /* @flow */
 
-const USER_OBJECTS = [{
-    id: 1,
-    email: 'starter@emumba.com',
-    password: '123456',
-    firstName: 'Starter',
-    lastName: 'Project',
-    linkHome: '/'
-  }]  
+// src
+import { buildEntityManagerFunctions } from '../utils'
+import { User } from '../models'
 
-export const getUser = () => USER_OBJECTS[0]
+export const { findByID, deleteByID, findAll, create, updateByID } = buildEntityManagerFunctions(User)
 
-export const findUserByEmailAndPassword = (email:string, password:string):Object =>
-  USER_OBJECTS.find(user => user.email === email && user.password === password)
+export const findUserByEmailAndPassword = (email:string, password:string):Object => {
+  return User.findOne({where: {email, password}})
+}
 
-export const findUserByID = (id:number):Object =>
-  USER_OBJECTS.find(user => user.id === id)
+const USER_OBJECT = {
+  email: "starter",
+  password: "123456",
+  firstName: "React",
+  lastName: "Starter"
+}
+
+export const createUserIfNotExist = () =>
+  User.findAndCountAll({ limit: 1 })
+    .then(({ count }) => count < 1 && create(USER_OBJECT))

@@ -4,10 +4,19 @@
 import express from 'express'
 
 // src
-import { ensureAnonymity, caughtError } from '../../utils'
-import { findUserByEmailAndPassword } from '../../managers'
+import { bindEntityApiRoutes, ensureAnonymity, caughtError } from '../../utils'
+import {
+  findByID,
+  findAll,
+  create,
+  updateByID,
+  deleteByID,
+  findUserByEmailAndPassword
+} from '../../managers/userManager'
 
 const router = express.Router()
+
+bindEntityApiRoutes(router, '/api/users', { findByID, findAll, create, updateByID, deleteByID })
 
 // requires email and password
 router.post('/api/login', ensureAnonymity, (req, res) => {
@@ -31,23 +40,19 @@ router.post('/api/login', ensureAnonymity, (req, res) => {
       })
   }
 
-  const user = findUserByEmailAndPassword(email, password)
+  findUserByEmailAndPassword(email, password)
+    .then(item => {
+      const user = item.get({ plain: true })
 
-  if ( !user ) {
-    res
-      .status(400)
-      .send({
-        message: 'Invalid username or password'
+      return req.login(user, err => {
+        if ( err ) {
+          caughtError(res, err)
+        } else {
+          res.send({ user })
+        }
       })
-  }
-
-  return req.login(user, err => {
-    if ( err ) {
-      caughtError(res, err)
-    } else {
-      res.send({ user })
-    }
-  })
+    })
+    .catch(error => caughtError(res, error))
 })
 
 router.get('/api/logout', (req, res) => {

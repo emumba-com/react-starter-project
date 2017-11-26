@@ -2,7 +2,7 @@
 import passport from 'passport'
 
 // src
-import { findUserByID } from '../managers'
+import { findByID as findUserByID } from '../managers/userManager'
 
 export const setupPassport = () => {
   passport.serializeUser((user, done) => {
@@ -10,7 +10,10 @@ export const setupPassport = () => {
   })
 
   passport.deserializeUser((id, done) => {
-    done(null, findUserByID(id))
+    findUserByID(id)
+      .then(user => {
+        done(null, user.get({ plain: true }))
+      })
   })
 }
 

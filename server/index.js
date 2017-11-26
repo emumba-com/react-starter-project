@@ -20,6 +20,7 @@ import {
   getPort,
   isProduction
 } from './utils'
+import { createUserIfNotExist } from "./managers/userManager"
 
 const port = getPort()
 const app = express()
@@ -67,10 +68,11 @@ if ( process.env.UNIVERSAL_RENDERING === 'false' ) {
 // Include server routes as a middleware
 [
   'api/defaultApiController',
-  'api/iconApiController',
   'api/userApiController',
   'defaultController'
 ].forEach(name => app.use(require(`./controllers/${name}`)))
+
+createUserIfNotExist()
 
 app.use(build404ErrorHandler())
 app.use(build500ErrorHandler())

@@ -1,10 +1,10 @@
 // src
 export * from './appUtils'
-export * from './authUtils'
 export * from './errorUtils'
 export * from './sequelize'
 export { default as buildEntityManagerFunctions } from './buildEntityManagerFunctions'
 export { default as bindEntityApiRoutes } from './bindEntityApiRoutes'
+export * from './authUtils'
 
 export const build404ErrorHandler = options => {
   

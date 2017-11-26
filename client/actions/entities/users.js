@@ -64,7 +64,7 @@ export function register(firstName, lastName, email) {
         USER_REGISTER_SUCCESS,
         USER_REGISTER_FAILURE
       ],
-      endpoint: `/api/users/create`,
+      endpoint: `/api/users`,
       method: 'POST'
     },
     payload: {firstName, lastName, email}
@@ -147,36 +147,21 @@ export function changePassword(currentPassword, newPassword, confirmNewPassword)
   }
 }
 
-export const USER_SEARCH_BY_EMAIL = 'USER_SEARCH_BY_EMAIL'
-export const USER_SEARCH_BY_EMAIL_SUCCESS = 'USER_SEARCH_BY_EMAIL_SUCCESS'
-export const USER_SEARCH_BY_EMAIL_FAILURE = 'USER_SEARCH_BY_EMAIL_FAILURE'
+export const USERS_FETCH_BY_ID =         'USERS_FETCH_BY_ID'
+export const USERS_FETCH_BY_ID_SUCCESS = 'USERS_FETCH_BY_ID_SUCCESS'
+export const USERS_FETCH_BY_ID_FAILURE = 'USERS_FETCH_BY_ID_FAILURE'
 
-export function searchUsersByEmail(searchString) {
+export function fetchUserByID(id:number):Object {
   return {
     [CALL_API]: {
       types: [
-        USER_SEARCH_BY_EMAIL,
-        USER_SEARCH_BY_EMAIL_SUCCESS,
-        USER_SEARCH_BY_EMAIL_FAILURE
+        USERS_FETCH_BY_ID,
+        USERS_FETCH_BY_ID_SUCCESS,
+        USERS_FETCH_BY_ID_FAILURE
       ],
-      endpoint: `/api/users/search-by-email?search=${searchString}`
-    }
-  }
-}
-
-export const USER_SEARCH_BY_NAME = 'USER_SEARCH_BY_NAME'
-export const USER_SEARCH_BY_NAME_SUCCESS = 'USER_SEARCH_BY_NAME_SUCCESS'
-export const USER_SEARCH_BY_NAME_FAILURE = 'USER_SEARCH_BY_NAME_FAILURE'
-
-export function searchUsersByName(searchString) {
-  return {
-    [CALL_API]: {
-      types: [
-        USER_SEARCH_BY_NAME,
-        USER_SEARCH_BY_NAME_SUCCESS,
-        USER_SEARCH_BY_NAME_FAILURE
-      ],
-      endpoint: `/api/users/search-by-name?search=${searchString}`
-    }
+      endpoint: `/api/users/${id}`,
+      method: 'GET'
+    },
+    meta: { id }
   }
 }

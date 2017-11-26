@@ -1,1 +1,1 @@
-export * from './iconsAll'
+export * from './usersAll'

@@ -21,6 +21,11 @@ const sequelize = new Sequelize(dbName, username, password, {
   }
 })
 
+// Uncomment these lines if you want sequelize to create entities for you.
+// sequelize.sync().then(() => {
+//   console.log("Sequelize synced successfully!")
+// })
+
 export default sequelize
 
 const cache = {}
