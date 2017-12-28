@@ -47,10 +47,10 @@ export const hasEntity = (state: Object, key: string, id: number): boolean =>
 
 /**
  * Given a store state and an entity id, the func returns the entity object if found.
- * Returns 'undefined' otherwise
+ * Returns empty object otherwise
  */
 export const getEntity = (state: Object, key: string, id: number): Object =>
-  get(state, `entities.${key}.${id}`)
+  get(state, `entities.${key}.${id}`, {})
 
 /**
  * A utility func that, given a redux store state, finds out if a user is logged
